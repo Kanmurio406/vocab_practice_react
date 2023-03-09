@@ -13,25 +13,42 @@ function Answer (props) {
 }
 
 function Answers (props) {
-  const answers = props.syllableMode ? props.currentVocab.syllables.lists : props.currentVocab.word
+  const answers = props.answers
   let answerBoxes = [];
 
   for (let i = 0; i < answers.length; i++) {
     answerBoxes.push(<Answer key={i} value="   " />)
   }
 
-
   return (<div className="answers">
     {answerBoxes}
   </div>);
 }
 
-function Options () {
+function Option(props) {
+  return (
+    <button className='option'>{props.value}</button>
+  )
+}
 
+function Options (props) {
+  const options = props.answers
+  let optionBoxes = [];
+  
+  for (let i = 0; i < options.length; i++) { 
+    optionBoxes.push(<Option key={i} value={options[i]} />)
+  }
 
-    return (<div className="options">
+  function compareRandom(a, b) {
+    return Math.random() - 0.5;
+  }
 
-    </div>)
+  let shuffledOptionBoxes = [...optionBoxes]
+  shuffledOptionBoxes.sort(compareRandom)
+
+  return (<div className="options">
+    {shuffledOptionBoxes}
+  </div>)
 }
 
 function Tools ()  {
@@ -52,11 +69,16 @@ class Vocabulary extends React.Component {
   //   );
   // }
 
+  // 應該在這層就確認是哪一種 mode
+
   render() {
+    const currentVocab = this.props.currentVocab
+    const answers = this.props.syllableMode ? currentVocab.syllables.lists : currentVocab.word
+
     return (
     <div className='answering-container'>
-        <Answers currentVocab={this.props.currentVocab} syllableMode={this.props.syllableMode} />
-        <Options currentVocab={this.props.currentVocab} syllableMode={this.props.syllableMode} />
+        <Answers answers={answers} />
+        <Options answers={answers} />
         <Tools />
     </div>
     );

@@ -6,7 +6,6 @@
 }
 
 h1 {
-  // text-align: center;
   margin: 10px;
 }
 
@@ -26,11 +25,6 @@ button {
   display: flex;
   justify-content: center;
 
-  // input {
-  //   height: 20px;
-  //   width: 50px;
-  //   margin: 5px;
-  // }
   .answer {
     border: none;
     border-bottom: solid 2px;
@@ -44,11 +38,10 @@ button {
 
 .options {
   text-align: center;
-  margin-top: 30px;
+  margin: 30px;
 
-  button {
+  .option {
     margin: 5px;
-    cursor: pointer;
     width: 50px;
     height: 30px;
     font-size: 20px;
