@@ -6,6 +6,9 @@ import './App.scss';
 // 母音vowel: a,e,i,o,u
 // 子音consonant
 
+
+// 控制提示按鈕的顯示 點擊後的回應
+// 按鈕關閉和開啟 一次只能用一種
 function Answer (props) {
   return (
     <button className='answer'>{props.value}</button>
@@ -25,6 +28,10 @@ function Answers (props) {
   </div>);
 }
 
+
+// 控制選項區塊的顯示 點擊後的回應
+// 點選選項 取消選擇
+// 按鈕關閉和開啟
 function Option(props) {
   return (
     <button className='option'>{props.value}</button>
@@ -51,6 +58,9 @@ function Options (props) {
   </div>)
 }
 
+
+// 控制提示按鈕的顯示 點擊後的回應
+// 按鈕關閉和開啟 一次只能用一種
 function Tools ()  {
   return(<div className="tools-container">
     <button>母音提示</button>
@@ -59,6 +69,8 @@ function Tools ()  {
   </div>)
 }
 
+
+// 控制單一題的答案 確認答案正確與否 聲音播放 中文顯示
 class Vocabulary extends React.Component {
   // renderSquare(i) {
   //   return (
@@ -85,6 +97,8 @@ class Vocabulary extends React.Component {
   }
 }
 
+
+// 控制完整題庫 答題時間 關卡切換 模式 主題顏色
 class Controller extends React.Component {
   constructor(props) {
     super(props);
@@ -148,7 +162,7 @@ class Controller extends React.Component {
 
     return (
       <div className="container">
-        <h1>Simple English Vocabulary Dictation and Phonics Practice</h1>
+        <h1>英文單字拼寫 & 音節練習機</h1>
         <button className="play-sound">播放聲音</button>
         <Vocabulary currentVocab={currentVocab} syllableMode={this.state.syllableMode} />
       </div>
