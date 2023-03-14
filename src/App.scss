@@ -39,12 +39,17 @@ button {
 .options {
   text-align: center;
   margin: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 
   .option {
     margin: 5px;
     width: 50px;
     height: 30px;
     font-size: 20px;
+    border: solid 2px;
+    border-radius: 10px;
   }
 }
 
